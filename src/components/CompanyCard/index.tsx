@@ -3,7 +3,7 @@ import { ReactComponent as CompanyLogo } from './apple.svg';
 
 export const CompanyCard = () => {
   return (
-    <Card style={{ marginBottom: 16 }}>
+    <Card style={{ marginBottom: 30 }}>
       <Card.Body>
           <CompanyLogo width={48} height={48} style={{ marginBottom: 16 }} />
           <Card.Title>Apple Inc.</Card.Title>
