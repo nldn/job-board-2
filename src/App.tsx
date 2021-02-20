@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import { Container, Row, Col } from 'react-bootstrap';
-import { JobList } from './components/JobList';
+import { Login } from './components/Login';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Container>
         <Row>
           <Col sm="12">
-            <JobList />
+            <Login />
           </Col>
         </Row>
       </Container>
