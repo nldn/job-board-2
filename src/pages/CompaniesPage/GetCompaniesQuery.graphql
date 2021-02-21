@@ -1,0 +1,8 @@
+query GetCompaniesQuery {
+  companies {
+    id
+    name
+    description
+    logo
+  }
+}

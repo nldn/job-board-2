@@ -1,14 +1,35 @@
-import { Card, Button } from 'react-bootstrap';
-import { ReactComponent as CompanyLogo } from './apple.svg';
+import { FC } from 'react';
+import { useHistory } from 'react-router-dom';
 
-export const CompanyCard = () => {
+import { CompanyType } from '../../types';
+
+import { Card, Button } from 'react-bootstrap';
+import { CompanyLogo } from '../CompanyLogo';
+
+interface CompanyCardProps {
+  company: CompanyType;
+}
+
+export const CompanyCard: FC<CompanyCardProps> = ({ company }) => {
+  const history = useHistory();
+
   return (
     <Card style={{ marginBottom: 30 }}>
       <Card.Body>
-          <CompanyLogo width={48} height={48} style={{ marginBottom: 16 }} />
-          <Card.Title>Apple Inc.</Card.Title>
-          <Card.Text className="text-sm">Technology company based in Cupertino, California.</Card.Text>
-          <Button variant="outline-dark" block>More</Button>
+          <CompanyLogo name={company.logo} width={48} height={48} style={{ marginBottom: 16 }} />
+          <Card.Title>
+            {company.name}
+          </Card.Title>
+          <Card.Text className="text-sm">
+            {company.description}
+          </Card.Text>
+          <Button 
+            block
+            variant="outline-dark"
+            onClick={() => history.push(`companies/${company.id}`)}
+          >
+            More
+          </Button>
       </Card.Body>
     </Card>
   );

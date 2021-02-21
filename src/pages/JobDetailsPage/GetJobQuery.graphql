@@ -1,0 +1,13 @@
+query GetJobQuery($id: ID!) {
+  job(id: $id) {
+    id
+    title
+    description
+    salary
+    location
+    company {
+      id
+      name
+    }
+  }
+}
