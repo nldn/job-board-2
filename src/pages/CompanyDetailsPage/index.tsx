@@ -1,10 +1,10 @@
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 
+import getCompanyQuery from './GetCompanyQuery.graphql';
+
 import { Spinner, Card } from 'react-bootstrap';
 import { DefaultPage } from "../DefaultPage";
-
-import getCompanyQuery from './GetCompanyQuery.graphql';
 import { CompanyLogo } from "../../components/CompanyLogo";
 
 export const CompanyDetailsPage = () => {
