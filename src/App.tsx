@@ -11,6 +11,7 @@ import { CompaniesPage } from './pages/CompaniesPage';
 import { CompanyDetailsPage } from './pages/CompanyDetailsPage';
 import { Sidebar } from './components/Sidebar';
 import { Main } from './components/Main';
+import { CreateJobPage } from './pages/CreateJobPage';
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
                 <Row>
                   <Col sm="12">
                     <Switch>
-                      <Route path="/jobs" component={JobsPage} />
+                      <Route exact path="/jobs" component={JobsPage} />
+                      <Route path="/jobs/create" component={CreateJobPage} />
                       <Route exact path="/companies" component={CompaniesPage} />
                       <Route path="/companies/:companyId" component={CompanyDetailsPage} />
                     </Switch>  
