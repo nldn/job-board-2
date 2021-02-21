@@ -1,11 +1,13 @@
 import { useHistory } from 'react-router-dom';
+import moment from 'moment';
+
 import { Row, Col, Card, Button } from 'react-bootstrap';
 
 import { CompanyLogo } from '../CompanyLogo';
 
 export const JobCard = ({ job }) => {
   const history = useHistory();
-  
+
   return (
     <Card style={{ marginBottom: 15 }}>
       <Card.Body>
@@ -15,10 +17,15 @@ export const JobCard = ({ job }) => {
               <CompanyLogo name={job.company.logo} />
             </Col>
           )}
-          <Col sm="11">
-            <Card.Title>
-              {job.title}
-            </Card.Title>
+          <Col>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }} >
+              <Card.Title style={{ flex: 1, marginBottom: 0 }}>
+                {job.title}
+              </Card.Title>
+              <small className="text-muted">
+                {moment(job.createdAt).fromNow()}
+              </small>
+            </div>
             {job.company && (
               <Card.Subtitle className="text-muted">
                 {job.company.name}

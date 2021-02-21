@@ -5,6 +5,7 @@ query GetJobQuery($id: ID!) {
     description
     salary
     location
+    createdAt
     company {
       id
       name

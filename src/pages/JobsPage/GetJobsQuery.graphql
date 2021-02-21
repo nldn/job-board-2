@@ -3,6 +3,7 @@ query GetJobsQuery {
     id
     title
     description
+    createdAt
     company {
       id
       name

@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import moment from 'moment';
 
 import getJobQuery from './GetJobQuery.graphql';
 
@@ -28,13 +29,20 @@ export const JobDetailsPage = () => {
   }
 
   if (data) {
+    console.log(moment(data.job.createdAt).fromNow());
+
     return (
       <DefaultPage title="Job Details">
         <Card>
           <Card.Body>
-            <Card.Title>
-              {data.job.title}
-            </Card.Title>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }} >
+              <Card.Title style={{ flex: 1, marginBottom: 0 }}>
+                {data.job.title}
+              </Card.Title>
+              <small className="text-muted">
+                {moment(data.job.createdAt).fromNow()}
+              </small>
+            </div>
             <Card.Subtitle>
               {data.job.company.name}
             </Card.Subtitle>
