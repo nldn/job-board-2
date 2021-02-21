@@ -6,6 +6,7 @@ import getCompanyQuery from './GetCompanyQuery.graphql';
 import { Spinner, Card } from 'react-bootstrap';
 import { DefaultPage } from "../DefaultPage";
 import { CompanyLogo } from "../../components/CompanyLogo";
+import { JobList } from '../../components/JobList';
 
 export const CompanyDetailsPage = () => {
   const { companyId: id } = useParams<{ companyId: string }>();
@@ -31,7 +32,7 @@ export const CompanyDetailsPage = () => {
   if (data) {
     return (
       <DefaultPage title="Company Details">
-        <Card>
+        <Card style={{ marginBottom: 48 }}>
           <Card.Body>
             <CompanyLogo name={data.company.logo} width={48} height={48} style={{ marginBottom: 16 }} />
             <Card.Title>
@@ -42,6 +43,10 @@ export const CompanyDetailsPage = () => {
             </Card.Text>
           </Card.Body>
         </Card>
+
+        <h3>Jobs</h3>
+        
+        <JobList jobs={data.company.jobs} />
       </DefaultPage>
     );
   };

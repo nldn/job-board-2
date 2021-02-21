@@ -4,5 +4,10 @@ query GetCompanyQuery($id: ID!) {
     name
     description
     logo
+    jobs {
+      id
+      title
+      description
+    }
   }
 }
