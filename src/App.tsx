@@ -8,6 +8,7 @@ import './App.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { JobsPage } from './pages/JobsPage';
 import { CompaniesPage } from './pages/CompaniesPage';
+import { CompanyDetailsPage } from './pages/CompanyDetailsPage';
 import { Sidebar } from './components/Sidebar';
 import { Main } from './components/Main';
 
@@ -29,7 +30,8 @@ function App() {
                   <Col sm="12">
                     <Switch>
                       <Route path="/jobs" component={JobsPage} />
-                      <Route path="/companies" component={CompaniesPage} />
+                      <Route exact path="/companies" component={CompaniesPage} />
+                      <Route path="/companies/:companyId" component={CompanyDetailsPage} />
                     </Switch>  
                   </Col>
                 </Row>

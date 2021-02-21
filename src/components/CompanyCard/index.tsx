@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { CompanyType } from '../../types';
 
@@ -10,6 +11,8 @@ interface CompanyCardProps {
 }
 
 export const CompanyCard: FC<CompanyCardProps> = ({ company }) => {
+  const history = useHistory();
+
   return (
     <Card style={{ marginBottom: 30 }}>
       <Card.Body>
@@ -20,7 +23,13 @@ export const CompanyCard: FC<CompanyCardProps> = ({ company }) => {
           <Card.Text className="text-sm">
             {company.description}
           </Card.Text>
-          <Button variant="outline-dark" block>More</Button>
+          <Button 
+            block
+            variant="outline-dark"
+            onClick={() => history.push(`companies/${company.id}`)}
+          >
+            More
+          </Button>
       </Card.Body>
     </Card>
   );

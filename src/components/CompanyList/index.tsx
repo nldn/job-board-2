@@ -10,7 +10,7 @@ export const CompanyList: FC<CompanyListProps> = ({ companies }) => {
   return (
     <Row>
       {companies.map(company => (
-        <Col sm="3" key={company.id}>
+        <Col sm="12" md="6" lg="3" key={company.id}>
           <CompanyCard company={company} />
         </Col>
       ))}

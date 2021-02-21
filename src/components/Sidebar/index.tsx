@@ -5,7 +5,7 @@ export const Sidebar = () => {
     <div
       style={{
         width: 256,
-        backgroundColor: 'lightgray'
+        backgroundColor: 'white',
       }}
     >
       <ul>
