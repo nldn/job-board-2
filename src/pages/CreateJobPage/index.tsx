@@ -30,7 +30,7 @@ export const CreateJobPage = () => {
       description,
       salary: parseInt(salary),
       location,
-      companyId: "ryXpbXkG_",
+      companyId: "rytxzXJM_",
       createdBy: "1"
     }
 

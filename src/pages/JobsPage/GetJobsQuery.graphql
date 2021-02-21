@@ -1,0 +1,13 @@
+query GetJobsQuery {
+  jobs {
+    id
+    title
+    description
+    company {
+      id
+      name
+      description
+      logo
+    }
+  }
+}

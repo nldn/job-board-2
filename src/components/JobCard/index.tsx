@@ -1,22 +1,29 @@
+import { useHistory } from 'react-router-dom';
 import { Row, Col, Card, Button } from 'react-bootstrap';
 
 import { CompanyLogo } from '../CompanyLogo';
 
-export const JobCard = () => {
+export const JobCard = ({ job }) => {
+  const history = useHistory();
+  
   return (
     <Card style={{ marginBottom: 15 }}>
       <Card.Body>
         <Row>
           <Col sm="1" style={{ display: 'flex' }}>
-            <CompanyLogo name="apple" />
+            <CompanyLogo name={job.company.logo} />
           </Col>
           <Col sm="11">
-            <Card.Title>Frontend Developer</Card.Title>
-            <Card.Subtitle className="text-muted">Apple Inc.</Card.Subtitle>
+            <Card.Title>
+              {job.title}
+            </Card.Title>
+            <Card.Subtitle className="text-muted">
+              {job.company !== null ? job.company.name : 'Unknown Company'}
+            </Card.Subtitle>
             <Card.Text>
-              We are looking for a frontend developer who will join our Design & Engineering team.
+              {job.description}
             </Card.Text>
-            <Button variant="outline-dark">More</Button>
+            <Button variant="outline-dark" onClick={() => history.push(`/jobs/${job.id}`)}>More</Button>
           </Col>
         </Row>
       </Card.Body>
