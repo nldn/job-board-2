@@ -7,6 +7,7 @@ import './App.css';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import { JobsPage } from './pages/JobsPage';
+import { JobDetailsPage } from './pages/JobDetailsPage';
 import { CompaniesPage } from './pages/CompaniesPage';
 import { CompanyDetailsPage } from './pages/CompanyDetailsPage';
 import { Sidebar } from './components/Sidebar';
@@ -32,6 +33,7 @@ function App() {
                     <Switch>
                       <Route exact path="/jobs" component={JobsPage} />
                       <Route path="/jobs/create" component={CreateJobPage} />
+                      <Route path="/jobs/:jobId" component={JobDetailsPage} />
                       <Route exact path="/companies" component={CompaniesPage} />
                       <Route path="/companies/:companyId" component={CompanyDetailsPage} />
                     </Switch>  
