@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ApolloProvider} from '@apollo/client';
+import client from './apollo';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -18,21 +20,23 @@ function App() {
         width: '100%', 
         height: '100%' 
       }}>
-      <Router>
-        <Sidebar />
-        <Main>
-          <Container>
-            <Row>
-              <Col sm="12">
-                <Switch>
-                  <Route path="/jobs" component={JobsPage} />
-                  <Route path="/companies" component={CompaniesPage} />
-                </Switch>  
-              </Col>
-            </Row>
-          </Container>
-        </Main>
-      </Router>
+        <ApolloProvider client={client}>
+          <Router>
+            <Sidebar />
+            <Main>
+              <Container>
+                <Row>
+                  <Col sm="12">
+                    <Switch>
+                      <Route path="/jobs" component={JobsPage} />
+                      <Route path="/companies" component={CompaniesPage} />
+                    </Switch>  
+                  </Col>
+                </Row>
+              </Container>
+            </Main>
+          </Router>
+        </ApolloProvider>
     </div>
   );
 }
