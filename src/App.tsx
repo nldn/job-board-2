@@ -6,21 +6,32 @@ import './App.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { JobsPage } from './pages/JobsPage';
 import { CompaniesPage } from './pages/CompaniesPage';
+import { Sidebar } from './components/Sidebar';
+import { Main } from './components/Main';
 
 function App() {
   return (
-    <div className="bg-light" style={{ width: '100%', height: '100%' }}>
+    <div 
+      className="bg-light" 
+      style={{
+        display: 'flex', 
+        width: '100%', 
+        height: '100%' 
+      }}>
       <Router>
-        <Container>
-          <Row>
-            <Col sm="12">
-              <Switch>
-                <Route path="/jobs" component={JobsPage} />
-                <Route path="/companies" component={CompaniesPage} />
-              </Switch>  
-            </Col>
-          </Row>
+        <Sidebar />
+        <Main>
+          <Container>
+            <Row>
+              <Col sm="12">
+                <Switch>
+                  <Route path="/jobs" component={JobsPage} />
+                  <Route path="/companies" component={CompaniesPage} />
+                </Switch>  
+              </Col>
+            </Row>
           </Container>
+        </Main>
       </Router>
     </div>
   );
