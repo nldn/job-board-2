@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useMutation } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 
+import getCompaniesQuery from './GetCompaniesQuery.graphql';
 import createJobMutation from './CreateJobMutation.graphql';
 
 import { Button, Card, Form } from "react-bootstrap";
@@ -10,10 +11,13 @@ import { DefaultPage } from "../DefaultPage";
 export const CreateJobPage = () => {
   const history = useHistory();
 
+  const [companyId, setCompanyId] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [salary, setSalary] = useState('');
   const [location, setLocation] = useState('');
+
+  const { data } = useQuery(getCompaniesQuery);
 
   const [ createJob ] = useMutation(createJobMutation, {
     onCompleted: ({ job }) => {
@@ -30,7 +34,7 @@ export const CreateJobPage = () => {
       description,
       salary: parseInt(salary),
       location,
-      companyId: "rytxzXJM_",
+      companyId,
       createdBy: "1"
     }
 
@@ -44,6 +48,17 @@ export const CreateJobPage = () => {
       <Card>
         <Card.Body>
           <Form onSubmit={handleSubmit}>
+          <Form.Group>
+              <Form.Label>Company</Form.Label>
+              <Form.Control as="select" value={companyId} onChange={e => setCompanyId(e.target.value)}>
+                {data?.companies.map(company => (
+                  <option value={company.id} key={company.id}>
+                    {company.name}
+                  </option> || null
+                ))}
+              </Form.Control>
+            </Form.Group>
+
             <Form.Group>
               <Form.Label>Title</Form.Label>
               <Form.Control type="text" placeholder="Title" value={title} onChange={e => setTitle(e.target.value)} />

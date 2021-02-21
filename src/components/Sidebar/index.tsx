@@ -22,6 +22,9 @@ export const Sidebar = () => {
             <Link to="/jobs">Jobs</Link>
           </li>
           <li>
+            <Link to="/jobs/create">Create Job</Link>
+          </li>
+          <li>
             <Link to="/companies">Companies</Link>
           </li>
         </ul>
