@@ -1,17 +1,19 @@
 import { FC } from 'react';
 
+import { CompanyType } from '../../types';
+
 import { Card, Button } from 'react-bootstrap';
 import { CompanyLogo } from '../CompanyLogo';
 
 interface CompanyCardProps {
-  company: any;
+  company: CompanyType;
 }
 
 export const CompanyCard: FC<CompanyCardProps> = ({ company }) => {
   return (
     <Card style={{ marginBottom: 30 }}>
       <Card.Body>
-          <CompanyLogo name="apple" width={48} height={48} style={{ marginBottom: 16 }} />
+          <CompanyLogo name={company.logo} width={48} height={48} style={{ marginBottom: 16 }} />
           <Card.Title>
             {company.name}
           </Card.Title>
