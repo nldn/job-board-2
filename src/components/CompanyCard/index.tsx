@@ -1,6 +1,7 @@
 import { FC } from 'react';
+
 import { Card, Button } from 'react-bootstrap';
-import { ReactComponent as CompanyLogo } from './apple.svg';
+import { CompanyLogo } from '../CompanyLogo';
 
 interface CompanyCardProps {
   company: any;
@@ -10,7 +11,7 @@ export const CompanyCard: FC<CompanyCardProps> = ({ company }) => {
   return (
     <Card style={{ marginBottom: 30 }}>
       <Card.Body>
-          <CompanyLogo width={48} height={48} style={{ marginBottom: 16 }} />
+          <CompanyLogo name="apple" width={48} height={48} style={{ marginBottom: 16 }} />
           <Card.Title>
             {company.name}
           </Card.Title>

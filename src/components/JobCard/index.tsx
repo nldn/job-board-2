@@ -1,6 +1,6 @@
 import { Row, Col, Card, Button } from 'react-bootstrap';
 
-import { ReactComponent as CompanyLogo } from '../CompanyCard/apple.svg';
+import { CompanyLogo } from '../CompanyLogo';
 
 export const JobCard = () => {
   return (
@@ -8,7 +8,7 @@ export const JobCard = () => {
       <Card.Body>
         <Row>
           <Col sm="1" style={{ display: 'flex' }}>
-            <CompanyLogo />
+            <CompanyLogo name="apple" />
           </Col>
           <Col sm="11">
             <Card.Title>Frontend Developer</Card.Title>
