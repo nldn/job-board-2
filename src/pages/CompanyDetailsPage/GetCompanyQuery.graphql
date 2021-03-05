@@ -8,6 +8,7 @@ query GetCompanyQuery($id: ID!) {
       id
       title
       description
+      createdAt
     }
   }
 }

@@ -5,7 +5,8 @@ export const Main: FC = ({ children }) => {
     <div
       style={{
         display: 'flex',
-        flex: 1
+        flex: 1,
+        overflowY: 'scroll'
       }}
     >
       {children}
